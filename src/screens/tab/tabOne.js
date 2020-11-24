@@ -1,30 +1,77 @@
 import React, { Component } from "react";
-import { Content, Card, CardItem, Text, Body } from "native-base";
+import { Content, Card, CardItem, Text, Body,Grid,Col} from "native-base";
 import { Image } from "react-native";
 import Splashscreen from "../splashscreen"
 const cover = require("../../../assets/fashion.png");
 const bigsale = require("../../../assets/bigsale.png");
+import { Platform, StyleSheet, FlatList, Alert,View } from "react-native";
+import {TabTwo} from "./tabTwo";
 
  class TabOne extends Component {
-     constructor(props) {
+    //  constructor(props) {
+    //   super(props);
+    //   this.state = {};
+    //   const nav = this.props.nav; 
+    // }
+
+    constructor(props) {
       super(props);
-      this.state = {};
-      const nav = this.props.nav; 
+  
+      this.state = {
+        GridListItems: [
+          { key: "Skptricks",url:cover },
+          { key: "Sumit",url:cover  },
+          { key: "Amit",url:cover  },
+          { key: "React",url:cover  },
+          { key: "React Native",url:cover  },
+          { key: "Java",url:cover  },
+          { key: "Javascript",url:cover  },
+          { key: "PHP",url:cover  },
+          { key: "AJAX",url:cover },
+          { key: "Android",url:cover  },
+          { key: "Selenium",url:cover  },
+          { key: "HTML",url:cover },
+          { key: "Database",url:cover  },
+          { key: "Database",url:cover  },
+
+        ]
+      };
+    }
+    GetGridViewItem(item) {
+      Alert.alert(item)
+      
+
     }
   render() {
   
     return (
-      <Content padder>
       
-        <Card>
-          <CardItem>
-            <Body>
-            <Text>{this.props.navigation}</Text>
-              <Image source={cover} />
-              <Text  onPress={() => {this.props.navigation.navigate("Anatomy");}}>test</Text>
-            </Body>
-          </CardItem>
-        </Card>
+
+      <Content padder>
+        <View style={styles.container}>
+         <FlatList
+            data={ this.state.GridListItems }
+            renderItem={ ({item}) =>
+              <View style={styles.GridViewContainer}>
+               <Text style={styles.GridViewTextLayout} onPress={this.GetGridViewItem.bind(this, item.key)} ><Image source={item.url} /> </Text>
+               <Text>{item.key}  </Text>
+              </View> }
+            numColumns={2}
+         />
+       </View>
+        
+     
+      <Grid>
+      <Col>
+      <Image source={cover} />
+      <Text  onPress={() => {this.props.navigation.navigate("Anatomy");}}>test nesteds</Text>
+      </Col>
+       <Col>
+      <Image source={cover} />
+      <Text  onPress={() => {this.props.navigation.navigate("Anatomy");}}>test nesteds</Text>
+      </Col>
+      </Grid>
+      {/* <Grid>  
         <Card>
           <CardItem>
             <Body>
@@ -32,9 +79,38 @@ const bigsale = require("../../../assets/bigsale.png");
             </Body>
           </CardItem>
         </Card>
-        
+        </Grid>   */}
       </Content>
     );
   }
 }
 export default TabOne;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "#e5e5e5"
+  },
+  headerText: {
+    fontSize: 20,
+    textAlign: "right",
+    margin: 10,
+    fontWeight: "bold"
+  },
+  GridViewContainer: {
+   flex:1,
+   justifyContent: 'center',
+   alignItems: 'center',
+   height: 100,
+   margin: 5,
+   backgroundColor: 'white'
+},
+GridViewTextLayout: {
+   fontSize: 20,
+   fontWeight: 'bold',
+   justifyContent: 'center',
+   color: 'black',
+   padding: 10,
+ }
+});

@@ -224,41 +224,35 @@ class HeaderNB extends React.Component {
     const {navigate} = this.props.navigation; 
     return (
       <Container style={styles.container}>
-        <TabOne navigation={navigate}/>
+        {/* <TabOne navigation={navigate}/> */}
         <Header>
           <Left>
             <Button
               transparent
-              onPress={() => this.props.navigation.openDrawer()}
-            >
+              onPress={() => this.props.navigation.openDrawer()}>
               <Icon name="menu" />
             </Button>
           </Left>
-          <Body>
-            {/* <Title>Headers</Title> */}
-            
-          </Body>
-          <Right>
-         
+        <Right>
           <Button active={this.state.tab1} onPress={() => this.toggleTab1()} transparent>
-              <Icon active={this.state.tab1} name="search" />
-            </Button>
-            <Button active={this.state.tab2} onPress={() => this.toggleTab2()} transparent>
-              <Icon active={this.state.tab2} name="ios-notifications" />
-            </Button>
-            <Button active={this.state.tab3} onPress={() => this.toggleTab3()} transparent>
-              <Icon active={this.state.tab3} name="heart" />
-            </Button>
-            <Button active={this.state.tab4} onPress={() => this.toggleTab4()} transparent>
+            <Icon active={this.state.tab1} name="search" />
+          </Button>
+          <Button active={this.state.tab2} onPress={() => this.toggleTab2()} transparent>
+            <Icon active={this.state.tab2} name="ios-notifications" />
+          </Button>
+          <Button active={this.state.tab3} onPress={() => this.toggleTab3()} transparent>
+            <Icon active={this.state.tab3} name="heart" />
+          </Button>
+          <Button active={this.state.tab4} onPress={() => this.toggleTab4()} transparent>
               {/* <Icon name="more" /> */}
-              <Icon active={this.state.tab4} name="md-cart"/>
-            </Button>
-          </Right>
-          </Header>
+            <Icon active={this.state.tab4} name="md-cart"/>
+          </Button>
+        </Right>
+        </Header>
+        <View>
         <ScrollView horizontal >
             <Button active={this.state.tab5} onPress={() => this.toggleTab5() }>
-              <Text>Fashion's{this.state.tab5}</Text>
-              
+              <Text>Fashion's{this.state.tab5}</Text> 
             </Button>
             <Button active={this.state.tab6} onPress={() => this.toggleTab6()}>
               <Text>Toys{this.state.tab6}</Text>
@@ -269,9 +263,11 @@ class HeaderNB extends React.Component {
             <Button active={this.state.tab8} onPress={() => this.toggleTab8()}>
               <Text>Home Essentials{this.state.tab8}</Text>
             </Button>
-        </ScrollView>
-         <Content padder>
-           <View>
+      </ScrollView>
+      </View>
+         <Content>
+        
+        <View>
          
          {this.state.tab5===true && <TabOne />}
         {this.state.tab6===true && <TabTwo />}
@@ -282,6 +278,7 @@ class HeaderNB extends React.Component {
         {this.state.tab12===true && <TabThree />}
         {this.state.tab13===true && <TabOne />}
         </View>
+ 
         </Content>
         <Footer>
         <ScrollView horizontal>
