@@ -305,6 +305,11 @@ class HeaderNB extends React.Component {
               <Icon active={this.state.tab14} name="contact" />
               <Text>Profile</Text>
             </Button>
+            <Button 
+            onPress={() => this.props.navigation.navigate("Product")}>
+              <Icon active={this.state.tab14} name="contact" />
+              <Text>Product detail</Text>
+            </Button>
           </FooterTab>
           </ScrollView>
         </Footer>

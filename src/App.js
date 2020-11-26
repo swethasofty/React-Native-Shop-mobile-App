@@ -142,12 +142,14 @@ import TabOne from "./screens/tab/tabOne";
 
 //latest
 import Signup from "./screens/signup/index";
+import Product from "./screens/Product/Product";
 
 const Drawer = createDrawerNavigator(
   {
     //latest
   
     Signup: { screen: Signup },
+    Product : { screen :Product},
     TabScreen: { screen : TabScreen},
     TabOne : { screen : TabOne},
     
