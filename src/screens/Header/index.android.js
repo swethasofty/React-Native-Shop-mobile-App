@@ -29,8 +29,12 @@ import TabThree from "../tab/tabThree";
 import TabFour from "../tab/tabFour";
 import TabFive from "../tab/tabFive";
 import TabScreen from "../tab";
-import { Alert, ScrollView } from "react-native";
+import { Alert, ScrollView,StyleSheet, FlatList ,Image} from "react-native";
 const PlayerScreen = ({ navigation }) => (<TabOne navigation={navigation}/>);
+const cover = require("../../../assets/fashion.png");
+import { withNavigation } from 'react-navigation';
+import ProductDeatils from "../Product/ProductDetails"
+
 
 
 
@@ -52,7 +56,7 @@ const datas = [
 ];
 
 
-class HeaderNB extends React.Component {
+class HeaderNB extends React.Component{
   // eslint-disable-line
   constructor(props) {
     super(props);
@@ -70,8 +74,24 @@ class HeaderNB extends React.Component {
       tab11: false,
       tab12: false,
       tab13: false,
-      tab14: false
-    };
+      tab14: false,
+  
+    GridListItems: [
+      { key: "Skptricks",url:cover },
+      { key: "Sumit",url:cover  },
+      { key: "Amit",url:cover  },
+      { key: "React",url:cover  },
+      { key: "React Native",url:cover  }
+
+    ]
+  }
+  }
+ 
+  GetGridViewItem(item) {
+    Alert.alert(item)
+
+    Alert.alert(this.props.navigate)
+    this.props.navigation.navigate("ProductDeatils")
   }
   toggleTab1() {
     this.setState({
@@ -145,7 +165,7 @@ class HeaderNB extends React.Component {
       tab13: false,
       tab14: false
     });
-    
+    this.props.navigation.navigate("Bag")
   }
   toggleTab5() {
     alert("hiii")
@@ -222,6 +242,7 @@ class HeaderNB extends React.Component {
         });   }
   render() {
     const {navigate} = this.props.navigation; 
+    <ProductDeatils navigation={this.props.navigation}  />
     return (
       <Container style={styles.container}>
         {/* <TabOne navigation={navigate}/> */}
@@ -265,10 +286,11 @@ class HeaderNB extends React.Component {
             </Button>
       </ScrollView>
       </View>
+
+     
          <Content>
         
-        <View>
-         
+        <View> 
          {this.state.tab5===true && <TabOne />}
         {this.state.tab6===true && <TabTwo />}
         {this.state.tab7===true && <TabThree />}
@@ -278,7 +300,17 @@ class HeaderNB extends React.Component {
         {this.state.tab12===true && <TabThree />}
         {this.state.tab13===true && <TabOne />}
         </View>
- 
+ {/* <View style={styles.container}>
+         <FlatList
+            data={ this.state.GridListItems }
+            renderItem={ ({item}) =>
+              <View style={styles.GridViewContainer}>
+               <Text style={styles.GridViewTextLayout} onPress={this.GetGridViewItem.bind(this, item.key)} ><Image source={item.url} /> </Text>
+               <Text>{item.key}  </Text>
+              </View> }
+            numColumns={2}
+         />
+       </View> */}
         </Content>
         <Footer>
         <ScrollView horizontal>
@@ -318,4 +350,4 @@ class HeaderNB extends React.Component {
   }
 }
 
-export default HeaderNB;
+export default withNavigation(HeaderNB);

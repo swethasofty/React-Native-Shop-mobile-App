@@ -1,7 +1,7 @@
 import React from "react";
 import { Root } from "native-base";
 // import { StackNavigator, DrawerNavigator } from "react-navigation";
-import { createDrawerNavigator, createStackNavigator, createAppContainer } from "react-navigation";
+import { createDrawerNavigator, createStackNavigator, createAppContainer,SwitchNavigator } from "react-navigation";
 
 import Header from "./screens/Header/";
 import Header1 from "./screens/Header/1";
@@ -137,21 +137,27 @@ import NHToast from "./screens/toast/";
 import Actionsheet from "./screens/actionsheet";
 import NHAccordion from "./screens/accordion/";
 import NHDatePicker from "./screens/datepicker/";
-import TabScreen from "./screens/tab";
+import TabScreen from "./screens/tab/index";
 import TabOne from "./screens/tab/tabOne";
 
 //latest
 import Signup from "./screens/signup/index";
+import ProductDeatils from "./screens/Product/ProductDetails";
 import Product from "./screens/Product/Product";
+import Bag from "./screens/Bag/Index"
+
 
 const Drawer = createDrawerNavigator(
   {
     //latest
   
     Signup: { screen: Signup },
-    Product : { screen :Product},
     TabScreen: { screen : TabScreen},
     TabOne : { screen : TabOne},
+    ProductDeatils : { screen : ProductDeatils},
+    Product : { screen : Product},
+    Bag : { screen : Bag},
+    
     
     Home: { screen: Home },
     Anatomy: { screen: Anatomy },
@@ -194,6 +200,9 @@ const Drawer = createDrawerNavigator(
 const AppNavigator = createStackNavigator(
   {
     Drawer: { screen: Drawer },
+    ProductDeatils : { screen : ProductDeatils},
+    Product : { screen : Product},
+    Bag : { screen : Bag},
     TabScreen: { screen : TabScreen},
     TabOne : { screen : TabOne},
     Anatomy: { screen: Anatomy },
@@ -324,12 +333,20 @@ const AppNavigator = createStackNavigator(
   {
     initialRouteName: "Drawer",
     headerMode: "none",
-    contentComponent: props => <TabOne nav = {this.props.navigation}/>
+    contentComponent: props => <TabOne navigate = {this.props.navigation}/>
   }
 );
 
 
-
+// const switchNav = SwitchNavigator(
+//   {
+//     ProductDeatils: ProductDeatils,
+//     Product: Product
+//   },
+//   {
+//     initialRouteName: 'Product',
+//   }
+// );
 const AppContainer = createAppContainer(AppNavigator);
 
 class App extends React.Component {

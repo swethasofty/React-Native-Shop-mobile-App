@@ -19,7 +19,7 @@ import Dialog, { DialogContent } from 'react-native-popup-dialog';
 import MaterialIcon from 'react-native-vector-icons';
 import CarouselComponent from '../Common/Carousel/index';
 import Carousel from 'react-native-carousel';
-import { withNavigation } from 'react-navigation';
+import { withNavigation,useNavigation  } from 'react-navigation';
 //import stylesLogo from "./styles";
 
 import Logo from "../Common/Logo/Logo";
@@ -40,7 +40,7 @@ const productData = {
 }
 
 
-class ProductDataPage extends Component {
+class ProductDetails extends Component {
   constructor(props){
     super(props);
  
@@ -48,6 +48,8 @@ class ProductDataPage extends Component {
        visible: false,
     }
  }
+
+
   render() {
     const backButton = () => {
     alert('back');
@@ -118,8 +120,11 @@ class ProductDataPage extends Component {
          <View style={styles.row3}>
                 {/* <Button buttonStyle={[styles.productButton]} onPress={openModal}><Text>Add To cart</Text></Button> */}
                 <Button buttonStyle={[styles.productButton]}  onPress={() => {this.setState({ visible: true });
-    }}><Text>Add To cart dummy </Text></Button>
-                <Button  buttonStyle={[styles.productButton]} onPress={checkout}><Text>Buy Now dummy</Text></Button>
+    }}><Text>Add To cart</Text></Button>
+    <Button buttonStyle={[styles.productButton]}  onPress={() => {this.props.navigation.navigate("Product");}}><Text>try</Text></Button>
+
+
+                <Button  buttonStyle={[styles.productButton]} onPress={checkout}><Text>Buy Now</Text></Button>
             </View>
             <View style={styles.container}>
   {/* <Button
@@ -143,9 +148,9 @@ class ProductDataPage extends Component {
                     {/* <Icon name="shopping" size={50} style={[styles.successIcon]} /> */}
                     <Icon size={50} style={[styles.successIcon]} name="md-cart"/>
                 </View>
-                <Text style={styles.msg}>One item added in your cart dummy</Text>
-                <Text style={styles.successText}>Success! dummy</Text>
-                <Button buttonStyle={[styles.checkOutButton]} onPress={() => {this.props.navigate("Anatomy");}}><Text>Submit</Text></Button>
+                <Text style={styles.msg}>One item added in your cart</Text>
+                <Text style={styles.successText}>Success!</Text>
+                <Button buttonStyle={[styles.checkOutButton]} onPress={() => {this.props.navigate("Product");}}><Text>Submit</Text></Button>
             </View>
     </DialogContent>
   </Dialog>
@@ -156,7 +161,7 @@ class ProductDataPage extends Component {
   }
 }
 Button
-export default withNavigation(ProductDataPage);
+export default withNavigation(ProductDetails);
 
 const styles = StyleSheet.create({
   container: {

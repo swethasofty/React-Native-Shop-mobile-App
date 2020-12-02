@@ -5,15 +5,14 @@ import Splashscreen from "../splashscreen"
 const cover = require("../../../assets/fashion.png");
 const bigsale = require("../../../assets/bigsale.png");
 import { Platform, StyleSheet, FlatList, Alert,View } from "react-native";
+import { createBottomTabNavigator } from "react-navigation";
 import {TabTwo} from "./tabTwo";
+import Anatomy from "../anatomy/index";
+import { withNavigation,useNavigation  } from 'react-navigation';
+
+
 
  class TabOne extends Component {
-    //  constructor(props) {
-    //   super(props);
-    //   this.state = {};
-    //   const nav = this.props.nav; 
-    // }
-
     constructor(props) {
       super(props);
   
@@ -24,21 +23,15 @@ import {TabTwo} from "./tabTwo";
           { key: "Amit",url:cover  },
           { key: "React",url:cover  },
           { key: "React Native",url:cover  },
-          { key: "Java",url:cover  },
-          { key: "Javascript",url:cover  },
-          { key: "PHP",url:cover  },
-          { key: "AJAX",url:cover },
-          { key: "Android",url:cover  },
-          { key: "Selenium",url:cover  },
-          { key: "HTML",url:cover },
-          { key: "Database",url:cover  },
-          { key: "Database",url:cover  },
+          { key: "Java",url:cover  }
+         
 
         ]
       };
     }
     GetGridViewItem(item) {
       Alert.alert(item)
+      this.props.navigation.navigate("ProductDeatils");
       
 
     }
@@ -60,17 +53,16 @@ import {TabTwo} from "./tabTwo";
          />
        </View>
         
-     
-      <Grid>
+      {/* <Grid>
       <Col>
       <Image source={cover} />
-      <Text  onPress={() => {this.props.navigation.navigate("Anatomy");}}>test nesteds</Text>
+      <Text  onPress={() => {this.props.navigation.navigate("ProductDeatils");}}>test nesteds</Text>
       </Col>
        <Col>
       <Image source={cover} />
       <Text  onPress={() => {this.props.navigation.navigate("Anatomy");}}>test nesteds</Text>
       </Col>
-      </Grid>
+      </Grid> */}
       {/* <Grid>  
         <Card>
           <CardItem>
@@ -84,7 +76,7 @@ import {TabTwo} from "./tabTwo";
     );
   }
 }
-export default TabOne;
+export default withNavigation(TabOne);
 
 const styles = StyleSheet.create({
   container: {
