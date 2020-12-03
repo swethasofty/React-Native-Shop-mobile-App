@@ -145,6 +145,7 @@ import Signup from "./screens/signup/index";
 import ProductDeatils from "./screens/Product/ProductDetails";
 import Product from "./screens/Product/Product";
 import Bag from "./screens/Bag/Index"
+import Checkout from "./screens/Bag/Checkout";
 
 
 const Drawer = createDrawerNavigator(
@@ -157,6 +158,7 @@ const Drawer = createDrawerNavigator(
     ProductDeatils : { screen : ProductDeatils},
     Product : { screen : Product},
     Bag : { screen : Bag},
+    Checkout : { screen : Checkout},
     
     
     Home: { screen: Home },
@@ -203,6 +205,8 @@ const AppNavigator = createStackNavigator(
     ProductDeatils : { screen : ProductDeatils},
     Product : { screen : Product},
     Bag : { screen : Bag},
+    Checkout : { screen : Checkout},
+    
     TabScreen: { screen : TabScreen},
     TabOne : { screen : TabOne},
     Anatomy: { screen: Anatomy },

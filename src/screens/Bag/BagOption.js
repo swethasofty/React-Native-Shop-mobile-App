@@ -14,13 +14,16 @@ const cover = require("../../../assets/fashion.png");
 
     constructor(props) {
         super(props);
-    
         this.state = {
-          values: [
-            { key: "total",vla:'$25.98' },
-            { key: "Delivery",url:'Standard - Free'  }
-          ]
+            label: "",
+            total: "",
         };
+        // this.state = {
+        //   values: [
+        //     { key: "total",vla:'$25.98' },
+        //     { key: "Delivery",url:'Standard - Free'  }
+        //   ]
+        // };
       }
 
      goToHome = () => {
@@ -39,10 +42,10 @@ const cover = require("../../../assets/fashion.png");
         <View style={[style.contentContainer]}>
             <View style={style.container}>
               <View style={[style.childContainer, style.leftContainer]}>
-                <Text styleKey="textColor" style={[style.content]}>Total</Text>
+                <Text styleKey="textColor" style={[style.content]}>{this.props.label}</Text>
               </View>
               <View style={[style.childContainer, style.rightContainer]}>
-                <Text styleKey="textColor" style={style.content}>$23</Text>
+                <Text styleKey="textColor" style={style.content}>{this.props.total}</Text>
               </View>
             </View>
           </View>

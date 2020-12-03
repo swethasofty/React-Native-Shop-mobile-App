@@ -67,10 +67,9 @@ class ProductDetails extends Component {
       alert('close');
     }
     const hideModal = () => {
-      alert('close');
-      this.state = {
-        visible: false,
-     }
+      //alert('close');
+      this.props.navigation.navigate("Bag");
+      this.setState({ visible: false });
     }
 
 
@@ -150,7 +149,7 @@ class ProductDetails extends Component {
                 </View>
                 <Text style={styles.msg}>One item added in your cart</Text>
                 <Text style={styles.successText}>Success!</Text>
-                <Button buttonStyle={[styles.checkOutButton]} onPress={() => {this.props.navigate("Product");}}><Text>Submit</Text></Button>
+                <Button buttonStyle={[styles.checkOutButton]} onPress={hideModal}><Text>Submit</Text></Button>
             </View>
     </DialogContent>
   </Dialog>

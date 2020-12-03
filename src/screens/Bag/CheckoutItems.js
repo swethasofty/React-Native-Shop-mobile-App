@@ -8,14 +8,15 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 // const  size = "M";
 const  color = "#FF0000";
-const ImagePath = require("../../../assets/fashion.png");
+const ImagePath = require("../../../assets/kid.jpg");
 
- class BagItem extends Component {
+ class CheckoutItems extends Component {
     constructor(props) {
         super(props);
         this.state = {
             size: "",
             color:"",
+            date:"",
             image1:""
         };
         
@@ -41,56 +42,24 @@ const ImagePath = require("../../../assets/fashion.png");
         </View>
         <View style={[style.childContainer, style.rightContainer, style.extraStyle, {justifyContent: "flex-start"}]}>
           <View style={[style.container, {paddingRight: 0}]}>
-            <View style={[style.childContainer, style.leftContainer, style.extraStyle]}>
-              <Text styleKey="textColor" style={style.content}>Top Heavy Bag</Text>
-             
-            </View>
-            <View style={[style.childContainer, style.rightContainer ,{flex: 1}]}>
-              <TouchableOpacity>
-                <Icon name="archive" size={20}  />
-              </TouchableOpacity>
-            </View>
           </View>
-          <View style={[style.container, {paddingTop: 20}]}>
-            <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
-              <Text styleKey="lightTextColor" style={[style.content]}>Size</Text>
-            </View>
-            <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
-              <Text styleKey="lightTextColor" style={[style.content]}>Color</Text>
-            </View>
-            <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
-              <Text styleKey="lightTextColor" style={[style.content]}>Qty</Text>
-            </View>
-          </View>
+
           <View style={style.container}>
             <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
-              <Text styleKey="textColor" style={[style.content, { paddingLeft: 7}]}>{this.props.size}</Text>
-            </View>
-            <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
-              <Icon name="circle" size={15} color={this.props.color} style={{paddingLeft: 10}}/>
-            <Text>Red</Text>
-            </View>
-            <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
-              <Text styleKey="textColor" style={[style.content, { paddingLeft: 7}]}>1</Text>
-            </View>
-          </View>
-          <View style={[style.container, {paddingTop: 20, paddingRight: 0}]}>
-            <View style={[style.childContainer, style.rightContainer, style.extraStyle]}>
-              <Text styleKey="lightTextColor" style={[style.strike]}>$20.90</Text>
-            </View>
-          </View>
-          <View style={[style.container, {paddingRight: 0}]}>
-            <View style={[style.childContainer, style.rightContainer, style.extraStyle]}>
-              <Text styleKey="textColor" style={style.content}>$12.99</Text>
+              <Text styleKey="blue" style={[style.content, { paddingLeft: 7}]}>
+                Estimated Delivery by<Text style={{fontWeight: "bold",color:"blue"}}>  {this.props.date}</Text></Text>
             </View>
           </View>
         </View>
+
+        
       </View>
+      
       
     );
   }
 }
-export default withNavigation(BagItem);
+export default withNavigation(CheckoutItems);
 
 const style = StyleSheet.create({
     container: {

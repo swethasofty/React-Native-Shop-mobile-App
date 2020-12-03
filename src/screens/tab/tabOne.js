@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import { Content, Card, CardItem, Text, Body,Grid,Col} from "native-base";
 import { Image } from "react-native";
 import Splashscreen from "../splashscreen"
-const cover = require("../../../assets/fashion.png");
-const bigsale = require("../../../assets/bigsale.png");
+
 import { Platform, StyleSheet, FlatList, Alert,View } from "react-native";
 import { createBottomTabNavigator } from "react-navigation";
 import {TabTwo} from "./tabTwo";
 import Anatomy from "../anatomy/index";
 import { withNavigation,useNavigation  } from 'react-navigation';
 
-
+const cover = require("../../../assets/fashion.png");
+const kid = require("../../../assets/kid.jpg");
+const blue = require("../../../assets/blue.jpg");
 
  class TabOne extends Component {
     constructor(props) {
@@ -19,8 +20,8 @@ import { withNavigation,useNavigation  } from 'react-navigation';
       this.state = {
         GridListItems: [
           { key: "Skptricks",url:cover },
-          { key: "Sumit",url:cover  },
-          { key: "Amit",url:cover  },
+          { key: "Sumit",url:kid  },
+          { key: "Amit",url:blue  },
           { key: "React",url:cover  },
           { key: "React Native",url:cover  },
           { key: "Java",url:cover  }
