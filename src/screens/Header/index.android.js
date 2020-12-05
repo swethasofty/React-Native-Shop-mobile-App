@@ -244,6 +244,7 @@ class HeaderNB extends React.Component{
   render() {
     const {navigate} = this.props.navigation; 
     <ProductDeatils navigation={this.props.navigation}  />
+
     return (
       <Container style={styles.container}>
         {/* <TabOne navigation={navigate}/> */}

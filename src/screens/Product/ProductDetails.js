@@ -43,7 +43,10 @@ const productData = {
 class ProductDetails extends Component {
   constructor(props){
     super(props);
- 
+    const { state } = this.props.navigation;
+    var title = state.params.price;
+  
+  
     this.state = {
        visible: false,
     }
@@ -51,6 +54,12 @@ class ProductDetails extends Component {
 
 
   render() {
+
+    // const { navigation } = this.props;
+    // const id = navigation.getParam('price')
+    const id = this.props.navigation.getParam('price');
+    const id1=this.props.navigation.state.params.price;
+
     const backButton = () => {
     alert('back');
   }
@@ -98,6 +107,13 @@ class ProductDetails extends Component {
           })}
       </View>)
   }
+  // const ScreenC = ({ navigation, route }) => {
+  //   const { param1, param2 } = route.params
+ 
+  // }
+
+  
+ 
     return (
       <View style={styles.container}>
          <View style={styles.row1}>
@@ -107,6 +123,8 @@ class ProductDetails extends Component {
         <View style={styles.row2}>
                 <View style={styles.row2_Child}>
                     <Text style={styles.productName}>{productData.name}</Text>
+                    <Text>testing  {this.id1}</Text>
+                    <Text>testing2  {id1}</Text>
                     <Text style={styles.productPrice}>{productData.price}</Text>
                     {selectColors(productData.color)}
                     {selectSizes(productData.size)}
