@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { Content, Card, CardItem, Text, Body,Grid,Col} from "native-base";
 import Splashscreen from "../splashscreen"
 import { Platform, StyleSheet, FlatList, Alert,View,Image,ScrollView,TouchableOpacity} from "react-native";
+import {Picker} from "react-native";
 import { withNavigation,useNavigation  } from 'react-navigation';
 import Icon from "react-native-vector-icons/FontAwesome";
+
+
 
 
 // const  size = "M";
@@ -14,9 +17,9 @@ const ImagePath = require("../../../assets/fashion.png");
     constructor(props) {
         super(props);
         this.state = {
-            size: "",
+            // size: "",
             color:"",
-            image1:""
+            image1:"",
         };
         
       }
@@ -32,7 +35,9 @@ const ImagePath = require("../../../assets/fashion.png");
 
     
   render() {
-    
+  //   state = {
+  //     size: this.props.size, 
+  // };
     return (
       
         <View style={[style.container, {paddingTop: 20}]}>
@@ -45,11 +50,7 @@ const ImagePath = require("../../../assets/fashion.png");
               <Text styleKey="textColor" style={style.content}>Top Heavy Bag</Text>
              
             </View>
-            <View style={[style.childContainer, style.rightContainer ,{flex: 1}]}>
-              <TouchableOpacity>
-                <Icon name="archive" size={20}  />
-              </TouchableOpacity>
-            </View>
+            
           </View>
           <View style={[style.container, {paddingTop: 20}]}>
             <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
@@ -64,11 +65,19 @@ const ImagePath = require("../../../assets/fashion.png");
           </View>
           <View style={style.container}>
             <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
-              <Text styleKey="textColor" style={[style.content, { paddingLeft: 7}]}>{this.props.size}</Text>
+              {/* <Text styleKey="textColor" style={[style.content, { paddingLeft: 7}]}>{this.props.size}</Text> */}
+              <Picker
+               selectedValue={this.props.size}
+               onValueChange={hand => this.setState({ size:hand })}
+              style={{ width: 80 }}
+              mode="dropdown">
+              <Picker.Item label="S" value="S" />
+              <Picker.Item label="M" value="M" />
+              <Picker.Item label="L" value="L" />
+            </Picker>
             </View>
             <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
               <Icon name="circle" size={15} color={this.props.color} style={{paddingLeft: 10}}/>
-            <Text>Red</Text>
             </View>
             <View style={[style.childContainer, style.leftContainer ,{flex: 1, }]}>
               <Text styleKey="textColor" style={[style.content, { paddingLeft: 7}]}>1</Text>
@@ -84,6 +93,14 @@ const ImagePath = require("../../../assets/fashion.png");
               <Text styleKey="textColor" style={style.content}>$12.99</Text>
             </View>
           </View>
+          <View style={[style.deleteAndWish, style.centerContainer]}>
+              <TouchableOpacity>
+                <Icon name="archive" size={20}  />
+              </TouchableOpacity>
+              <TouchableOpacity>
+               <Text>WishList</Text>
+              </TouchableOpacity>
+            </View>
         </View>
       </View>
       
@@ -121,6 +138,11 @@ const style = StyleSheet.create({
         alignItems: "flex-end",
         flex: 0,
       },
+      centerContainer: {
+        alignItems: "flex-start",
+        flex: 0,
+      },
+      
       title: {
         fontSize: 25,
         paddingTop: 15,
@@ -138,6 +160,10 @@ const style = StyleSheet.create({
       },
       extraStyle: {
         flex: 3
+      },
+      deleteAndWish: {
+        flex: 1,
+        justifyContent: "center",
       },
     });
     

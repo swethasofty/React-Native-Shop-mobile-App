@@ -20,48 +20,53 @@ const blue = require("../../../assets/blue.jpg");
   
       this.state = {
         GridListItems: [
-          { key: "Skptricks",url:kid,price:"$10" },
-          { key: "Sumit",url:blue, price:"$20" },
-          { key: "Amit",url:blue,price:"$20"  },
-          { key: "React",url:kid,price:"$10"  },
-          { key: "React Native",url:kid,price:"$30"  },
-          { key: "Java",url:blue,price:"$10" },
-          { key: "React",url:kid ,price:"$10" },
+          { key: "Girls Pink & Gold-Toned Embellished Ready to Wear Lehenga & Blouse with Dupatta",url:kid,price:"10.01" },
+          { key: "Red Ready to Wear Lehenga & Blouse with Dupatta",url:blue, price:"20.01" },
+          { key: "Amit",url:blue,price:"20.01"  },
+          { key: "React",url:kid,price:"10.01"  },
+          { key: "React Native",url:kid,price:"30.00"  },
+          { key: "Java",url:blue,price:"10.00" },
+          { key: "React",url:kid ,price:"10.00" },
           { key: "React Native",url:kid  }
          
 
         ]
       };
     }
-    GetGridViewItem(item) {
-      Alert.alert(item)
+    GetGridViewItem(price,url,key) {
+      // Alert.alert(price)
+      console.log("tabone>>"+JSON.stringify(this.state.GridListItems))
+      console.log("url"+url)
       this.props.navigation.navigate("ProductDeatils",
-      {params:{ price: item,
+       {price: price,
         id:"1000",
-        url: this.state.GridListItems.url} 
-      });
+        url: url,
+        Details:key
+       });
     }
   render() {
   
     return (
       <View style={styles.container}>
       <FlatList
+      
          data={ this.state.GridListItems }
+         numColumns={2}
          renderItem={ ({item}) =>
            <View style={styles.item}>
             {/* <Text style={styles.GridViewTextLayout} onPress={this.GetGridViewItem.bind(this, item.key)} ><Image source={item.url} /> </Text> */}
-            <TouchableOpacity  style={styles.image}   onPress={this.GetGridViewItem.bind(this, item.price)}  >
+            <TouchableOpacity  style={styles.image}   onPress={this.GetGridViewItem.bind(this, item.price,item.url,item.key)}  >
             <Image  source={item.url} />
+       {     console.log("<<<>>>>"+item.url)}
             </TouchableOpacity  >
-          
+
             <View style={styles.bottomView}>
-            <Text style={styles.paragraph}>{item.key} {item.price} </Text>
-            </View>
-            </View> }
-         numColumns={2}
-         
-      />
-      
+         <Text style={styles.paragraph}>{item.key} {item.price} </Text>
+         </View>
+       
+         </View> 
+        } />
+       
     </View>
         
      
@@ -119,7 +124,7 @@ const styles = StyleSheet.create({
    resizeMode:"contain",
    top:0,
    left:0,
-   bottom:0,
+   bottom:20,
    right:0,
    borderBottomLeftRadius: 10,
   
@@ -132,6 +137,7 @@ const styles = StyleSheet.create({
  bottomView: {
   width: '100%',
   height: 50,
+  top:180,
   justifyContent: 'center',
   position: 'absolute', //Here is the trick
   bottom: 0, //Here is the trick

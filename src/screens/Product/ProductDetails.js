@@ -14,9 +14,10 @@ import {
   Body,
   Alert
 } from "native-base";
-import {View ,TouchableOpacity,Image,StyleSheet,Dimensions,ImageBackground} from "react-native";
+import {View ,TouchableOpacity,Image,StyleSheet,Dimensions,ImageBackground,ScrollView} from "react-native";
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
-import MaterialIcon from 'react-native-vector-icons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { IconFill, IconOutline } from "@ant-design/icons-react-native";
 import CarouselComponent from '../Common/Carousel/index';
 import Carousel from 'react-native-carousel';
 import { withNavigation,useNavigation  } from 'react-navigation';
@@ -57,8 +58,14 @@ class ProductDetails extends Component {
 
     // const { navigation } = this.props;
     // const id = navigation.getParam('price')
-    const id = this.props.navigation.getParam('price');
-    const id1=this.props.navigation.state.params.price;
+    // const id = this.props.navigation.getParam('price');
+    
+    const price=JSON.stringify(this.props.navigation.state.params.price);
+    const Details=JSON.stringify(this.props.navigation.state.params.Details);
+    const url=JSON.stringify(this.props.navigation.state.params.url);
+    console.log("---"+parseFloat(price))
+    console.log("---++"+price)
+    console.log("++"+url)
 
     const backButton = () => {
     alert('back');
@@ -80,12 +87,14 @@ class ProductDetails extends Component {
       this.props.navigation.navigate("Bag");
       this.setState({ visible: false });
     }
-
+    const review=() => {
+      alert("hhh")
+    }
 
     const renderImageList = (images) => {
       return (images.map((img, index) => {
           return (<View key={index} style={styles.carouselRow}>
-                  <ImageBackground source={img} style={{ width: '100%', height: '100%', opacity: 0.7}} />
+                  <ImageBackground source={url} style={{ width: '100%', height: '100%', opacity: 0.7}} />
               </View>
           )
       }))
@@ -107,25 +116,24 @@ class ProductDetails extends Component {
           })}
       </View>)
   }
-  // const ScreenC = ({ navigation, route }) => {
-  //   const { param1, param2 } = route.params
- 
-  // }
-
-  
  
     return (
       <View style={styles.container}>
+  
          <View style={styles.row1}>
         <View style={styles.CarouselContainer}>
         {renderImageList(productData.images)}
         </View>
+        
         <View style={styles.row2}>
                 <View style={styles.row2_Child}>
-                    <Text style={styles.productName}>{productData.name}</Text>
-                    <Text>testing  {this.id1}</Text>
-                    <Text>testing2  {id1}</Text>
-                    <Text style={styles.productPrice}>{productData.price}</Text>
+                    <Text style={styles.productName}>{Details}</Text>
+                     <TouchableOpacity onPress={review}>
+                     <MaterialIcon name="rate-review" size={25}  ><Text>Review</Text></MaterialIcon>
+                     </TouchableOpacity>
+                     
+                   
+                    <Text style={styles.productPrice}>${price}</Text>
                     {selectColors(productData.color)}
                     {selectSizes(productData.size)}
                 </View>
@@ -173,6 +181,7 @@ class ProductDetails extends Component {
   </Dialog>
 </View>
       </View>
+    
       </View>
     );
   }

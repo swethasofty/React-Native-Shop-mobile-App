@@ -32,6 +32,7 @@
     ]
   },
   "dependencies": {
+    "@ant-design/icons-react-native": "^2.2.1",
     "@react-native-community/toolbar-android": "0.1.0-rc.2",
     "color": "1.0.3",
     "jetifier": "^1.6.6",
