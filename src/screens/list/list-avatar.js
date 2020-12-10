@@ -16,45 +16,45 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-const pratik = require("../../../assets/contacts/pratik.png");
-const sanket = require("../../../assets/contacts/sanket.png");
-const megha = require("../../../assets/contacts/megha.png");
-const atul = require("../../../assets/contacts/atul.png");
-const saurabh = require("../../../assets/contacts/saurabh.png");
-const varun = require("../../../assets/contacts/varun.png");
+// const pratik = require("../../../assets/contacts/pratik.png");
+// const sanket = require("../../../assets/contacts/sanket.png");
+// const megha = require("../../../assets/contacts/megha.png");
+// const atul = require("../../../assets/contacts/atul.png");
+// const saurabh = require("../../../assets/contacts/saurabh.png");
+// const varun = require("../../../assets/contacts/varun.png");
 const datas = [
   {
-    img: pratik,
+   // img: pratik,
     text: "Kumar Pratik",
     note: "Its time to build a difference . .",
     time: "3:43 pm"
   },
   {
-    img: sanket,
+  //  img: sanket,
     text: "Kumar Sanket",
     note: "One needs courage to be happy and smiling all time . . ",
     time: "1:12 pm"
   },
   {
-    img: megha,
+    //img: megha,
     text: "Megha",
     note: "Live a life style that matchs your vision",
     time: "10:03 am"
   },
   {
-    img: atul,
+   // img: atul,
     text: "Atul Ranjan",
     note: "Failure is temporary, giving up makes it permanent",
     time: "5:47 am"
   },
   {
-    img: saurabh,
+   // img: saurabh,
     text: "Saurabh Sahu",
     note: "The biggest risk is a missed opportunity !!",
     time: "11:11 pm"
   },
   {
-    img: varun,
+   // img: varun,
     text: "Varun Sahu",
     note: "Wish I had a Time machine . .",
     time: "8:54 pm"

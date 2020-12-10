@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Content, Card, CardItem, Text, Body } from "native-base";
 import { Image } from "react-native";
-const organic = require("../../../assets/organic.png");
+const organic = require("../../../assets/organic.jpg");
 
 export default class TabFour extends Component {
   render() {

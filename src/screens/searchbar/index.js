@@ -10,6 +10,7 @@ import {
   Text
 } from "native-base";
 import styles from "./styles";
+import { withNavigation,useNavigation  } from 'react-navigation';
 
 class NHSearchbar extends Component {
   render() {
@@ -39,4 +40,4 @@ class NHSearchbar extends Component {
   }
 }
 
-export default NHSearchbar;
+export default withNavigation(NHSearchbar);

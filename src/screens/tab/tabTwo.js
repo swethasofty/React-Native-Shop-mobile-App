@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Content, Card, CardItem, Text, Body } from "native-base";
 import { Image } from "react-native";
-const toys = require("../../../assets/toys.png");
+const toys = require("../../../assets/blue.jpg");
 
 export default class TabTwo extends Component {
   render() {

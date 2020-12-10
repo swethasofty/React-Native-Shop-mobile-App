@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useState, useEffect } from "react";
 import "babel-polyfill";
 //import Footer from "../footer/iconText";
 
@@ -39,6 +39,7 @@ import ProductDeatils from "../Product/ProductDetails"
 
 
 
+
 import styles from "./styles";
 
 const datas = [
@@ -58,6 +59,8 @@ const datas = [
 
 
 class HeaderNB extends React.Component{
+
+  
   // eslint-disable-line
   constructor(props) {
     super(props);
@@ -353,3 +356,33 @@ class HeaderNB extends React.Component{
 }
 
 export default withNavigation(HeaderNB);
+
+const style = StyleSheet.create({
+  contentContainer: {
+      paddingBottom: 10,
+      borderBottomWidth: 1,
+    },
+    container: {
+      paddingLeft: 15,
+      paddingRight: 15,
+      flexDirection: 'row',
+      justifyContent: "space-between",
+    },
+    childContainer: {
+      flex: 1,
+      justifyContent: "center",
+    },
+    leftContainer: {
+      alignItems: "flex-start",
+      flex: 0,
+    },
+    rightContainer: {
+      alignItems: "flex-end",
+      flex: 0,
+    },
+    content: {
+      fontSize: 14,
+      paddingTop: 10,
+    },
+  });
+  
